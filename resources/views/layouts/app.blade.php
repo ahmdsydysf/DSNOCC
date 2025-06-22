@@ -820,8 +820,19 @@
                                 <i class="fas fa-users"></i>
                                 <span>Users</span>
                             </a>
+                            <a href="{{ route('projects.index') }}" class="dropdown-item {{ request()->is('*projects*') ? 'active' : '' }}">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>Projects</span>
+                            </a>
                         </div>
                     </li>
+                    <li class="nav-item dropdown" id="mainDashboardDropdown2">
+                        <a href="{{ route('projects.display') }}" class="nav-link">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+
                     @endif
                 </ul>
 
@@ -923,6 +934,10 @@
                             <a href="{{ route('users.index') }}" class="dropdown-item {{ request()->is('*users*') ? 'active' : '' }}">
                                 <i class="fas fa-users"></i>
                                 <span>Users</span>
+                            </a>
+                            <a href="{{ route('projects.display') }}" class="dropdown-item {{ request()->is('*projects*') ? 'active' : '' }}">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>Projects</span>
                             </a>
                         </div>
                     </li>
@@ -1050,12 +1065,10 @@
     </div>
     <!-- /HK Wrapper -->
 
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('dashAssets/vendors/popper.js/dist/umd/popper.min.js') }}"></script>
-    <script src="{{ asset('dashAssets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!-- jQuery (required for Bootstrap 4) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap 4 JS (bundle includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Slimscroll JavaScript -->
     <script src="{{ asset('dashAssets/dist/js/jquery.slimscroll.js') }}"></script>
@@ -1279,6 +1292,7 @@
         });
     </script>
 
+    @yield('scripts')
 </body>
 
 </html>
